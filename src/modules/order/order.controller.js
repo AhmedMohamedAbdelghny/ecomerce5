@@ -154,7 +154,7 @@ export const createOrder = asyncHandler(async (req, res, next) => {
             })
 
         })
-        return res.status(201).json({ status: "done", session, order })
+        return res.status(201).json({ status: "done", url: session.url, order })
 
     }
 
