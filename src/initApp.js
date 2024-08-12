@@ -13,6 +13,10 @@ export const initApp = (express, app) => {
     app.use(cors())
     app.use(express.json());
 
+    app.get("/", (req, res) => {
+        res.status(200).json({ msg: "hello on my ecommerce application" })
+    })
+
     app.use("/users", routers.userRouter)
     app.use("/categories", routers.categoryRouter)
     app.use("/subCategories", routers.subCategoryRouter)
@@ -32,7 +36,7 @@ export const initApp = (express, app) => {
     })
 
     //GlobalErrorHandler
-    app.use(GlobalErrorHandler,deleteFromCloudinary,deleteFromDB)
+    app.use(GlobalErrorHandler, deleteFromCloudinary, deleteFromDB)
 
 
 
