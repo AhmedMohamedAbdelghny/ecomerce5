@@ -5,7 +5,7 @@ import * as routers from "../src/modules/index.routes.js";
 import { deleteFromCloudinary } from "./utils/deleteFromCloudinary.js";
 import { deleteFromDB } from "./utils/deleteFromDB.js";
 import cors from "cors"
-
+import morgan from 'morgan'
 
 export const initApp = (express, app) => {
 
@@ -20,6 +20,7 @@ export const initApp = (express, app) => {
         }
     });
 
+    app.use(morgan('dev'))
     app.get("/", (req, res) => {
         res.status(200).json({ msg: "hello on my ecommerce application" })
     })
